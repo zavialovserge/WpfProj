@@ -8,13 +8,13 @@ namespace Home.Model.Entity
     {
        
         public EconomyContext()
-            : base("name=EconomyContext")
+            : base(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\zavia\Desktop\C#Projects\Wpf\Home\Model\Database\HomeEconomy.mdf;Integrated Security=True")
         {
         }
 
        
 
-        // public virtual DbSet<MyEntity> MyEntities { get; set; }
+       public virtual DbSet<Bill> Bills { get; set; }
     }
 
 }

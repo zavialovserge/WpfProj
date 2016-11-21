@@ -1,19 +1,10 @@
+using System;
 using GalaSoft.MvvmLight;
+using Home.Model.Entity;
 
 namespace Home.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
+  
     public class MainViewModel : ViewModelBase
     {
         /// <summary>
@@ -21,14 +12,13 @@ namespace Home.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            using (EconomyContext context = new EconomyContext())
+            {
+                Bill bill = new Bill() {id = 1, date = DateTime.Now, money = 733, name = "market", quantity = 2};
+                context.Bills.Add(bill);
+                context.SaveChanges();
+            }
+            
         }
     }
 }
