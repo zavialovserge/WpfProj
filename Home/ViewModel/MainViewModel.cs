@@ -12,13 +12,18 @@ namespace Home.ViewModel
         /// </summary>
         public MainViewModel()
         {
+            AddToDatabase();
+
+        }
+
+        private void AddToDatabase()
+        {
             using (EconomyContext context = new EconomyContext())
             {
-                Bill bill = new Bill() {id = 1, date = DateTime.Now, money = 733, name = "market", quantity = 2};
+                Bill bill = new Bill() { id = 2, date = DateTime.Now, money = 733, name = "market", quantity = 2 };
                 context.Bills.Add(bill);
                 context.SaveChanges();
             }
-            
         }
     }
 }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Home.Model.Entity;
+using Home.ViewModel;
 
 namespace Home
 {
@@ -24,12 +25,7 @@ namespace Home
 
         public MainWindow()
         {
-            using (EconomyContext context = new EconomyContext())
-            {
-                Bill bill = new Bill() { id = 1, date = DateTime.Now, money = 733, name = "market", quantity = 2 };
-                context.Bills.Add(bill);
-                context.SaveChanges();
-            }
+            MainViewModel main = new MainViewModel();
             InitializeComponent();
         }
     }
